@@ -85,6 +85,12 @@
     <Compile Include="FormPelaporan.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HomeFrom.Designer.vb">
+      <DependentUpon>HomeFrom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HomeFrom.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPelaporan.resx">
       <DependentUpon>FormPelaporan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeFrom.resx">
+      <DependentUpon>HomeFrom.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
