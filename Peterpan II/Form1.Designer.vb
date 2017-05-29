@@ -151,6 +151,7 @@ Partial Class Form1
         '
         'Txt_JamMasuk
         '
+        Me.Txt_JamMasuk.Enabled = False
         Me.Txt_JamMasuk.Location = New System.Drawing.Point(124, 135)
         Me.Txt_JamMasuk.Name = "Txt_JamMasuk"
         Me.Txt_JamMasuk.Size = New System.Drawing.Size(100, 22)
@@ -192,7 +193,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Txt_No_Parkir)
         Me.Controls.Add(Me.label1)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Form_Keluar"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
