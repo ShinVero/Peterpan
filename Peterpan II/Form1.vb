@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.Data.SqlClient
+Imports System.ComponentModel
+Public Class Form1
     Dim no_transaksi As Integer
     Dim no_parkir As String
     Dim PlatPolisi As String
