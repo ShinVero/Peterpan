@@ -90,27 +90,41 @@
 
     Private Sub Btn_Save_Click(sender As Object, e As EventArgs) Handles Btn_Save.Click
         'proses pembayaran dan penyimpanan data..ketika tombol ini di klik
-        Dim JnsPelanggan As String
-        Dim JnsKendaraan As String
-        If no_parkir.Substring(1, 1) = "L" Then
-            JnsPelanggan = "Langganan"
-        ElseIf no_parkir.Substring(1, 1) = "K" Then
-            JnsPelanggan = "Karyawan"
-        Else
-            JnsPelanggan = "Umum"
-        End If
-        If no_parkir.Substring(0, 1) = "B" Then
-            JnsKendaraan = "Mobil"
-        ElseIf no_parkir.Substring(0, 1) = "T" Then
-            JnsKendaraan = "Motor"
-        End If
-        MessageBox.Show("No Transaksi : " & no_transaksi &
-                        " No Parkir : " & no_parkir &
-                        " Jenis Pelanggan : " & JnsPelanggan &
-                        " Jenis Kendaraan : " & JnsKendaraan &
-                        " Jam Masuk : " & Txt_JamMasuk.Text &
-                        " Jam_Keluar : " & Txt_JamKeluar.Text)
+        'Dim JnsPelanggan As String
+        'Dim JnsKendaraan As String
+        'If no_parkir.Substring(1, 1) = "L" Then
+        '    JnsPelanggan = "Langganan"
+        'ElseIf no_parkir.Substring(1, 1) = "K" Then
+        '    JnsPelanggan = "Karyawan"
+        'Else
+        '    JnsPelanggan = "Umum"
+        'End If
+        'If no_parkir.Substring(0, 1) = "B" Then
+        '    JnsKendaraan = "Mobil"
+        'ElseIf no_parkir.Substring(0, 1) = "T" Then
+        '    JnsKendaraan = "Motor"
+        'End If
+        'MessageBox.Show("No Transaksi : " & no_transaksi &
+        '            " No Parkir : " & no_parkir &
+        '            " Jenis Pelanggan : " & JnsPelanggan &
+        '            " Jenis Kendaraan : " & JnsKendaraan &
+        '            " Jam Masuk : " & Txt_JamMasuk.Text &
+        '            " Jam_Keluar : " & Txt_JamKeluar.Text)
         'anggap saja palang parkir terbuka
+        Dim strSql As String
+        strSql = "UPDATE Parkir SET No_parkir='{0}', Jam_keluar='{1}', Tgl_keluar='{2}' WHERE No_parkir='{3}'"
+        strSql = String.Format(strSql, no_parkir, jam_keluar)
+        Me.Parkir.executeSQL(strSql)
+
+
+        Dim strCon As String = "Data Source = .\ SQLEXPRESS;Initial Catalog=IdamanParkirDb2;Integrated Security=True"
+        Dim con As New SqlConnection(strCon)
+        Dim comm As New SqlCommand
+        con.Open()
+        comm.CommandText = "SELECT Deposit FROM Pelanggan WHERE Kd_pelanggan='" & TxtKdPel.Text & "'"
+        comm.Connection = con
+        Dim UangDeposit As Object = comm.ExecuteScalar()
+        TxtUangDeposit.Text = UangDeposit
         modestandby()
         Txt_Biaya.Clear()
         Txt_JamMasuk.Clear()
