@@ -6,6 +6,7 @@ Public Class Form1
     Dim PlatPolisi As String
     Dim jam_masuk As DateTime
     Dim jam_keluar As DateTime
+    Dim tgl_keluar As Date = Date.Now
     Dim biaya_Parkir As Integer
     Dim Deposito As Integer
     Dim Total As Integer
@@ -41,7 +42,6 @@ Public Class Form1
                     no_transaksi += 1
                     no_parkir = Txt_No_Parkir.Text
                     Txt_No_Transaksi.Text = no_transaksi
-
                     'Mendapatkan selisih waktu
                     Dim ts As TimeSpan =
                         (Convert.ToDateTime(Txt_JamKeluar.Text).Subtract(Convert.ToDateTime(Txt_JamMasuk.Text))).Duration()
@@ -153,5 +153,9 @@ Public Class Form1
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         Txt_JamMasuk.Text = Format("00:00:00")
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Txt_Tanggal_Keluar.Text = tgl_keluar.ToString("yyyy-MM-dd")
     End Sub
 End Class
