@@ -27,8 +27,6 @@ Partial Class Form1
         Me.Btn_Save = New System.Windows.Forms.Button()
         Me.Btn_Proses = New System.Windows.Forms.Button()
         Me.Txt_Biaya = New System.Windows.Forms.TextBox()
-        Me.Txt_No_Transaksi = New System.Windows.Forms.TextBox()
-        Me.label7 = New System.Windows.Forms.Label()
         Me.label6 = New System.Windows.Forms.Label()
         Me.label5 = New System.Windows.Forms.Label()
         Me.label4 = New System.Windows.Forms.Label()
@@ -46,7 +44,7 @@ Partial Class Form1
         'Btn_Clear
         '
         Me.Btn_Clear.Enabled = False
-        Me.Btn_Clear.Location = New System.Drawing.Point(237, 224)
+        Me.Btn_Clear.Location = New System.Drawing.Point(230, 195)
         Me.Btn_Clear.Name = "Btn_Clear"
         Me.Btn_Clear.Size = New System.Drawing.Size(75, 23)
         Me.Btn_Clear.TabIndex = 31
@@ -56,7 +54,7 @@ Partial Class Form1
         'Btn_Save
         '
         Me.Btn_Save.Enabled = False
-        Me.Btn_Save.Location = New System.Drawing.Point(124, 224)
+        Me.Btn_Save.Location = New System.Drawing.Point(117, 195)
         Me.Btn_Save.Name = "Btn_Save"
         Me.Btn_Save.Size = New System.Drawing.Size(75, 23)
         Me.Btn_Save.TabIndex = 30
@@ -65,7 +63,7 @@ Partial Class Form1
         '
         'Btn_Proses
         '
-        Me.Btn_Proses.Location = New System.Drawing.Point(18, 224)
+        Me.Btn_Proses.Location = New System.Drawing.Point(11, 195)
         Me.Btn_Proses.Name = "Btn_Proses"
         Me.Btn_Proses.Size = New System.Drawing.Size(75, 23)
         Me.Btn_Proses.TabIndex = 29
@@ -79,26 +77,9 @@ Partial Class Form1
         Me.Txt_Biaya.Location = New System.Drawing.Point(12, 63)
         Me.Txt_Biaya.Multiline = True
         Me.Txt_Biaya.Name = "Txt_Biaya"
-        Me.Txt_Biaya.Size = New System.Drawing.Size(443, 50)
+        Me.Txt_Biaya.Size = New System.Drawing.Size(456, 50)
         Me.Txt_Biaya.TabIndex = 28
         Me.Txt_Biaya.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Txt_No_Transaksi
-        '
-        Me.Txt_No_Transaksi.Enabled = False
-        Me.Txt_No_Transaksi.Location = New System.Drawing.Point(126, 130)
-        Me.Txt_No_Transaksi.Name = "Txt_No_Transaksi"
-        Me.Txt_No_Transaksi.Size = New System.Drawing.Size(100, 22)
-        Me.Txt_No_Transaksi.TabIndex = 25
-        '
-        'label7
-        '
-        Me.label7.AutoSize = True
-        Me.label7.Location = New System.Drawing.Point(12, 127)
-        Me.label7.Name = "label7"
-        Me.label7.Size = New System.Drawing.Size(108, 17)
-        Me.label7.TabIndex = 24
-        Me.label7.Text = "No. Transaksi : "
         '
         'label6
         '
@@ -120,7 +101,7 @@ Partial Class Form1
         'label4
         '
         Me.label4.AutoSize = True
-        Me.label4.Location = New System.Drawing.Point(261, 170)
+        Me.label4.Location = New System.Drawing.Point(254, 141)
         Me.label4.Name = "label4"
         Me.label4.Size = New System.Drawing.Size(95, 17)
         Me.label4.TabIndex = 21
@@ -129,7 +110,7 @@ Partial Class Form1
         'label3
         '
         Me.label3.AutoSize = True
-        Me.label3.Location = New System.Drawing.Point(12, 172)
+        Me.label3.Location = New System.Drawing.Point(5, 143)
         Me.label3.Name = "label3"
         Me.label3.Size = New System.Drawing.Size(95, 17)
         Me.label3.TabIndex = 20
@@ -137,7 +118,7 @@ Partial Class Form1
         '
         'Txt_No_Parkir
         '
-        Me.Txt_No_Parkir.Location = New System.Drawing.Point(375, 127)
+        Me.Txt_No_Parkir.Location = New System.Drawing.Point(99, 15)
         Me.Txt_No_Parkir.Name = "Txt_No_Parkir"
         Me.Txt_No_Parkir.Size = New System.Drawing.Size(100, 22)
         Me.Txt_No_Parkir.TabIndex = 17
@@ -145,7 +126,7 @@ Partial Class Form1
         'label1
         '
         Me.label1.AutoSize = True
-        Me.label1.Location = New System.Drawing.Point(261, 130)
+        Me.label1.Location = New System.Drawing.Point(9, 15)
         Me.label1.Name = "label1"
         Me.label1.Size = New System.Drawing.Size(79, 17)
         Me.label1.TabIndex = 16
@@ -154,7 +135,7 @@ Partial Class Form1
         'Txt_JamMasuk
         '
         Me.Txt_JamMasuk.Enabled = False
-        Me.Txt_JamMasuk.Location = New System.Drawing.Point(126, 167)
+        Me.Txt_JamMasuk.Location = New System.Drawing.Point(119, 138)
         Me.Txt_JamMasuk.Name = "Txt_JamMasuk"
         Me.Txt_JamMasuk.Size = New System.Drawing.Size(100, 22)
         Me.Txt_JamMasuk.TabIndex = 26
@@ -162,7 +143,7 @@ Partial Class Form1
         'Txt_JamKeluar
         '
         Me.Txt_JamKeluar.Enabled = False
-        Me.Txt_JamKeluar.Location = New System.Drawing.Point(375, 169)
+        Me.Txt_JamKeluar.Location = New System.Drawing.Point(368, 140)
         Me.Txt_JamKeluar.Name = "Txt_JamKeluar"
         Me.Txt_JamKeluar.Size = New System.Drawing.Size(100, 22)
         Me.Txt_JamKeluar.TabIndex = 27
@@ -196,15 +177,13 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(490, 300)
+        Me.ClientSize = New System.Drawing.Size(490, 250)
         Me.Controls.Add(Me.Btn_Clear)
         Me.Controls.Add(Me.Btn_Save)
         Me.Controls.Add(Me.Btn_Proses)
         Me.Controls.Add(Me.Txt_Biaya)
         Me.Controls.Add(Me.Txt_JamKeluar)
         Me.Controls.Add(Me.Txt_JamMasuk)
-        Me.Controls.Add(Me.Txt_No_Transaksi)
-        Me.Controls.Add(Me.label7)
         Me.Controls.Add(Me.label6)
         Me.Controls.Add(Me.label5)
         Me.Controls.Add(Me.label4)
@@ -224,8 +203,6 @@ Partial Class Form1
     Private WithEvents Btn_Save As Button
     Private WithEvents Btn_Proses As Button
     Private WithEvents Txt_Biaya As TextBox
-    Private WithEvents Txt_No_Transaksi As TextBox
-    Private WithEvents label7 As Label
     Private WithEvents label6 As Label
     Private WithEvents label5 As Label
     Private WithEvents label4 As Label

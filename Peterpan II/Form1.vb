@@ -1,7 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.ComponentModel
 Public Class Form1
-    Dim no_transaksi As Integer
     Dim no_parkir As String
     Dim PlatPolisi As String
     Dim jam_masuk As DateTime
@@ -13,7 +12,6 @@ Public Class Form1
     Sub modestandby()
         Txt_Biaya.Enabled = False
         Txt_JamMasuk.Enabled = False
-        Txt_No_Transaksi.Enabled = False
         Txt_No_Parkir.Enabled = True
         Btn_Proses.Enabled = True
         Btn_Save.Enabled = False
@@ -23,7 +21,6 @@ Public Class Form1
     Sub modeEdit()
         Txt_Biaya.Enabled = True
         Txt_JamMasuk.Enabled = True
-        Txt_No_Transaksi.Enabled = False
         Txt_No_Parkir.Enabled = True
         Txt_JamMasuk.Enabled = True
         Btn_Clear.Enabled = True
@@ -39,9 +36,8 @@ Public Class Form1
             For x = 0 To no_parkir.Count - 1
                 If Txt_No_Parkir.Text = no_parkir Then
                     modeEdit()
-                    no_transaksi += 1
                     no_parkir = Txt_No_Parkir.Text
-                    Txt_No_Transaksi.Text = no_transaksi
+
                     'Mendapatkan selisih waktu
                     Dim ts As TimeSpan =
                         (Convert.ToDateTime(Txt_JamKeluar.Text).Subtract(Convert.ToDateTime(Txt_JamMasuk.Text))).Duration()
@@ -113,9 +109,10 @@ Public Class Form1
         '            " Jam Masuk : " & Txt_JamMasuk.Text &
         '            " Jam_Keluar : " & Txt_JamKeluar.Text)
         'anggap saja palang parkir terbuka
+        Dim Parkir As New Tabel("Parkir")
         Dim strSql As String
-        strSql = "UPDATE Parkir SET No_parkir='{0}', Jam_keluar='{1}', Tgl_keluar='{2}' WHERE No_parkir='{3}'"
-        strSql = String.Format(strSql, no_parkir, jam_keluar)
+        strSql = "UPDATE Parkir SET  Jam_keluar='{0}', Tgl_keluar='{1}', Biaya='{2}' WHERE No_parkir='{3}'"
+        strSql = String.Format(strSql, jam_keluar, tgl_keluar, biaya_Parkir)
         Me.Parkir.executeSQL(strSql)
 
 
@@ -123,27 +120,19 @@ Public Class Form1
         Dim con As New SqlConnection(strCon)
         Dim comm As New SqlCommand
         con.Open()
-        comm.CommandText = "SELECT Deposit FROM Pelanggan WHERE Kd_pelanggan='" & TxtKdPel.Text & "'"
+        comm.CommandText = "UPDATE Pelanggan Set Deposit='" & Deposito & "' WHERE No_Pelanggan='" &  & "'"
         comm.Connection = con
-        Dim UangDeposit As Object = comm.ExecuteScalar()
-        TxtUangDeposit.Text = UangDeposit
         modestandby()
         Txt_Biaya.Clear()
         Txt_JamMasuk.Clear()
-        Txt_No_Transaksi.Clear()
         Txt_No_Parkir.Clear()
     End Sub
 
     Private Sub Btn_Clear_Click(sender As Object, e As EventArgs) Handles Btn_Clear.Click
         Txt_Biaya.Clear()
         Txt_JamMasuk.Clear()
-        Txt_No_Transaksi.Clear()
         Txt_No_Parkir.Clear()
-        If no_transaksi = 0 Then
-            MessageBox.Show("tidak ada transaksi")
-        Else
-            no_transaksi -= 1
-        End If
+        MessageBox.Show("Data Berhasil di Clear")
         modestandby()
     End Sub
 
